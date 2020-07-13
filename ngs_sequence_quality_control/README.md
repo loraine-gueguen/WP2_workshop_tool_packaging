@@ -15,7 +15,7 @@
   * [Install Miniconda](#install-miniconda)
   * [Set up channels](#set-up-channels)
   * [Search for tool packages](#search-for-tool-packages)
-  * [Create a conda environment](#create-a-conda-environment)
+  * [Create a Conda environment](#create-a-conda-environment)
 - [Run the sequence control quality in the Conda environment](#run-the-sequence-control-quality-in-the-conda-environment)
   * [Get the data](#get-the-data)
   * [Introduction to the fastq format](#introduction-to-the-fastq-format)
@@ -33,7 +33,7 @@
 
 High Throughput Sequencing (HTS) or Next-Generation Sequencing (NGS) technologies generate a massive number of sequence reads (a succession of nucleotides). However, they will generate different types and amount of errors, such as incorrect nucleotides being called. Therefore, the first step in HTS data analysis often is to understand, identify and exclude error-types that may impact the interpretation of downstream analysis. 
 
-This tutorial will provide hands-on experience performing quality control checks and how to get your data analysis ready with the tools FastQC and Cutadapt using Conda packages.
+This tutorial will provide hands-on experience using Conda packages to perform quality control checks and get your data ready for downstream analysis with the tools FastQC and Cutadapt.
 
 ## Set up the Conda environment
 
@@ -77,7 +77,7 @@ The `conda search` command searches for packages in the currently configured cha
 If there is no Conda package for your favorite tool, please build it by writing a new recipe! This part will be described in the next tutorials.
 The documentation and guidelines can be found here: https://bioconda.github.io/contributor/index.html
 
-### Create a conda environment
+### Create a Conda environment
 
 You know that the Conda packages for your tools are available. How do you install them? 
 
@@ -93,9 +93,9 @@ You can also specify different release numbers:
 
     conda create -n quality_control fastqc=0.11.8 cutadapt=2.9
 
-The conda environment is ready!
+The Conda environment is ready!
 
-You can activate the conda environment and check the tools:
+You can activate the Conda environment and check the tools:
 
     conda activate quality_control
     fastqc --version
@@ -107,25 +107,27 @@ You can activate the conda environment and check the tools:
     conda activate quality_control
     conda install fastqc cutadapt
 
-To deactivate the conda environment:
+To deactivate the Conda environment:
 
     conda deactivate
 
 **Here, we have prepared a single environment with all the tools. In case of incompatibilities, as for example two software which require python2 and python3, it's recommanded to create separated environments and activate them just before using it.**
 
-Now, let's start using the conda environment and start analysing the sequencing data!
+Now, let's start using the Conda environment and start analysing the sequencing data!
 
 ## Run the sequence control quality in the Conda environment
 
 ### Get the data
 
-Download the sample raw data at https://github.com/eosc-life/WP2_workshop_tool_packaging/ngs_sequence_quality_control/datasets/reads-fw.fastq or with `git clone git@github.com:eosc-life/WP2_workshop_tool_packaging.git` and `cd WP2_workshop_tool_packaging/ngs_sequence_quality_control/datasets`
+Download the sample raw data `reads-fw.fastq`:
+- either at https://github.com/eosc-life/WP2_workshop_tool_packaging/ngs_sequence_quality_control/datasets/reads-fw.fastq 
+- or with `git clone git@github.com:eosc-life/WP2_workshop_tool_packaging.git`, then `cd WP2_workshop_tool_packaging/ngs_sequence_quality_control/datasets`
 
 ### Introduction to the fastq format
 
 The data we get directly from a sequencing facility are FASTQ files. In a FASTQ file, each read is encoded by 4 lines: line 1 (and optionally line 3) contains ID and descriptions, line 2 is the actual nucleic sequence, and line 4 are quality scores for each base of the sequence encoded as ASCII symbols.
 
-An example from the `datasets/reads-fw.fastq` file:
+An example sequence from the `reads-fw.fastq` file:
 
     @SRR031714.9938 HWI-EAS299_130MNEAAXX:2:1:1376:650/2
     TGAGATTACACTGGAGGATGTACTCTTTTGTAAGGAA
@@ -178,7 +180,7 @@ You have checked the quality of your fastq file to ensure that the data looks go
 
 You can now create and manage other Conda environments for whatever further OMIC analysis you want to do!
 
-*If you are interested, further information on OMIC analyses can be found in the [Galaxy training tutorials](https://training.galaxyproject.org/training-material/).*
+*If you are interested, further information and tutorials on OMIC analyses can be found in the [Galaxy training network](https://training.galaxyproject.org/training-material/).*
 
 ## Supplementary commands
 
@@ -228,7 +230,7 @@ Create an environment from YAML file:
 
 ## Conclusion
 
-In this tutorial, we have seen the main useful commands of Conda: they are all available in the **Conda [cheat sheet](https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html#)**.
+In this tutorial, we have seen the main useful commands of Conda: they are all available in the **[Conda cheat sheet](https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html#)**.
 
 We also got a glimpse of the pre-processing steps needed before any NGS sequence analysis: quality control with a tool like FastQC and trimming with a tool like Cutadapt.
 
