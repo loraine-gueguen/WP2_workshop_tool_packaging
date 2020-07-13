@@ -1,6 +1,6 @@
 # Example of the use of Conda packages for NGS sequence quality control
 
-**Objective**: Learn how to use conda packages and some best practices through a simple NGS sequence analysis (sequence quality control)
+**Objective**: Learn how to use conda packages and some useful commands through a simple NGS sequence analysis (sequence quality control)
 
 **Requirements**: 
 - Basic unix commands knowledge
@@ -17,8 +17,8 @@
   * [Search for tool packages](#search-for-tool-packages)
   * [Create a conda environment](#create-a-conda-environment)
 - [Run the sequence control quality in the Conda environment](#run-the-sequence-control-quality-in-the-conda-environment)
-  * [Introduction to the fastq format](#introduction-to-the-fastq-format)
   * [Get the data](#get-the-data)
+  * [Introduction to the fastq format](#introduction-to-the-fastq-format)
   * [Control quality with FastQC](#control-quality-with-fastqc)
   * [Filter and trim with Cutadapt](#filter-and-trim-with-cutadapt)
   * [What is next?](#what-is-next-)
@@ -117,6 +117,10 @@ Now, let's start using the conda environment and start analysing the sequencing 
 
 ## Run the sequence control quality in the Conda environment
 
+### Get the data
+
+Download the sample raw data at https://github.com/eosc-life/WP2_workshop_tool_packaging/ngs_sequence_quality_control/datasets/reads-fw.fastq or with `git clone git@github.com:eosc-life/WP2_workshop_tool_packaging.git` and `cd WP2_workshop_tool_packaging/ngs_sequence_quality_control/datasets`
+
 ### Introduction to the fastq format
 
 The data we get directly from a sequencing facility are FASTQ files. In a FASTQ file, each read is encoded by 4 lines: line 1 (and optionally line 3) contains ID and descriptions, line 2 is the actual nucleic sequence, and line 4 are quality scores for each base of the sequence encoded as ASCII symbols.
@@ -129,10 +133,6 @@ An example from the `datasets/reads-fw.fastq` file:
     IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6II
 
 *A detailed explanation of the FASTQ format is beyond the scope of this tutorial. You can find more information at [this page](https://training.galaxyproject.org/training-material/topics/sequence-analysis/tutorials/quality-control/tutorial.html#inspect-a-raw-sequence-file).*
-
-### Get the data
-
-Download the sample raw data at https://github.com/eosc-life/WP2_workshop_tool_packaging/ngs_sequence_control_quality/datasets/reads-fw.fastq or with `git clone git@github.com:eosc-life/WP2_workshop_tool_packaging.git` and `cd WP2_workshop_tool_packaging/ngs_sequence_control_quality/datasets`
 
 ### Control quality with FastQC
 
